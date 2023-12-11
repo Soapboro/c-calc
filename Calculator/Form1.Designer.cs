@@ -58,26 +58,26 @@ namespace Calculator
             this.complexMult = new System.Windows.Forms.Button();
             this.complexSubstr = new System.Windows.Forms.Button();
             this.complexSum = new System.Windows.Forms.Button();
-            this.quantCalc = new System.Windows.Forms.TabPage();
-            this.quantVecZRes = new System.Windows.Forms.TextBox();
-            this.quantVecYRes = new System.Windows.Forms.TextBox();
-            this.quantVecXRes = new System.Windows.Forms.TextBox();
-            this.quantRealRes = new System.Windows.Forms.TextBox();
+            this.quatCalc = new System.Windows.Forms.TabPage();
+            this.quatVecZRes = new System.Windows.Forms.TextBox();
+            this.quatVecYRes = new System.Windows.Forms.TextBox();
+            this.quatVecXRes = new System.Windows.Forms.TextBox();
+            this.quatRealRes = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.quantVecZB = new System.Windows.Forms.TextBox();
-            this.quantVecYB = new System.Windows.Forms.TextBox();
-            this.quantVecXB = new System.Windows.Forms.TextBox();
-            this.quantRealB = new System.Windows.Forms.TextBox();
-            this.quantVecZA = new System.Windows.Forms.TextBox();
-            this.quantVecYA = new System.Windows.Forms.TextBox();
-            this.quantVecXA = new System.Windows.Forms.TextBox();
-            this.quantRealA = new System.Windows.Forms.TextBox();
-            this.quantLabelB = new System.Windows.Forms.Label();
-            this.quantLabelA = new System.Windows.Forms.Label();
-            this.quantDiv = new System.Windows.Forms.Button();
-            this.quantMult = new System.Windows.Forms.Button();
-            this.quantSubstr = new System.Windows.Forms.Button();
-            this.quantSum = new System.Windows.Forms.Button();
+            this.quatVecZB = new System.Windows.Forms.TextBox();
+            this.quatVecYB = new System.Windows.Forms.TextBox();
+            this.quatVecXB = new System.Windows.Forms.TextBox();
+            this.quatRealB = new System.Windows.Forms.TextBox();
+            this.quatVecZA = new System.Windows.Forms.TextBox();
+            this.quatVecYA = new System.Windows.Forms.TextBox();
+            this.quatVecXA = new System.Windows.Forms.TextBox();
+            this.quatRealA = new System.Windows.Forms.TextBox();
+            this.quatLabelB = new System.Windows.Forms.Label();
+            this.quatLabelA = new System.Windows.Forms.Label();
+            this.quatDiv = new System.Windows.Forms.Button();
+            this.quatMult = new System.Windows.Forms.Button();
+            this.quatSubstr = new System.Windows.Forms.Button();
+            this.quatSum = new System.Windows.Forms.Button();
             this.moduleNCalc = new System.Windows.Forms.TabPage();
             this.modLabelRes = new System.Windows.Forms.Label();
             this.modRes = new System.Windows.Forms.TextBox();
@@ -94,7 +94,7 @@ namespace Calculator
             this.tabControl1.SuspendLayout();
             this.realCalc.SuspendLayout();
             this.complexCalc.SuspendLayout();
-            this.quantCalc.SuspendLayout();
+            this.quatCalc.SuspendLayout();
             this.moduleNCalc.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -102,7 +102,7 @@ namespace Calculator
             // 
             this.tabControl1.Controls.Add(this.realCalc);
             this.tabControl1.Controls.Add(this.complexCalc);
-            this.tabControl1.Controls.Add(this.quantCalc);
+            this.tabControl1.Controls.Add(this.quatCalc);
             this.tabControl1.Controls.Add(this.moduleNCalc);
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
@@ -381,61 +381,61 @@ namespace Calculator
             this.complexSum.UseVisualStyleBackColor = true;
             this.complexSum.Click += new System.EventHandler(this.complexSum_Click);
             // 
-            // quantCalc
+            // quatCalc
             // 
-            this.quantCalc.Controls.Add(this.quantVecZRes);
-            this.quantCalc.Controls.Add(this.quantVecYRes);
-            this.quantCalc.Controls.Add(this.quantVecXRes);
-            this.quantCalc.Controls.Add(this.quantRealRes);
-            this.quantCalc.Controls.Add(this.label2);
-            this.quantCalc.Controls.Add(this.quantVecZB);
-            this.quantCalc.Controls.Add(this.quantVecYB);
-            this.quantCalc.Controls.Add(this.quantVecXB);
-            this.quantCalc.Controls.Add(this.quantRealB);
-            this.quantCalc.Controls.Add(this.quantVecZA);
-            this.quantCalc.Controls.Add(this.quantVecYA);
-            this.quantCalc.Controls.Add(this.quantVecXA);
-            this.quantCalc.Controls.Add(this.quantRealA);
-            this.quantCalc.Controls.Add(this.quantLabelB);
-            this.quantCalc.Controls.Add(this.quantLabelA);
-            this.quantCalc.Controls.Add(this.quantDiv);
-            this.quantCalc.Controls.Add(this.quantMult);
-            this.quantCalc.Controls.Add(this.quantSubstr);
-            this.quantCalc.Controls.Add(this.quantSum);
-            this.quantCalc.Location = new System.Drawing.Point(4, 22);
-            this.quantCalc.Name = "quantCalc";
-            this.quantCalc.Size = new System.Drawing.Size(392, 143);
-            this.quantCalc.TabIndex = 3;
-            this.quantCalc.Text = "Квантернионы";
-            this.quantCalc.UseVisualStyleBackColor = true;
+            this.quatCalc.Controls.Add(this.quatVecZRes);
+            this.quatCalc.Controls.Add(this.quatVecYRes);
+            this.quatCalc.Controls.Add(this.quatVecXRes);
+            this.quatCalc.Controls.Add(this.quatRealRes);
+            this.quatCalc.Controls.Add(this.label2);
+            this.quatCalc.Controls.Add(this.quatVecZB);
+            this.quatCalc.Controls.Add(this.quatVecYB);
+            this.quatCalc.Controls.Add(this.quatVecXB);
+            this.quatCalc.Controls.Add(this.quatRealB);
+            this.quatCalc.Controls.Add(this.quatVecZA);
+            this.quatCalc.Controls.Add(this.quatVecYA);
+            this.quatCalc.Controls.Add(this.quatVecXA);
+            this.quatCalc.Controls.Add(this.quatRealA);
+            this.quatCalc.Controls.Add(this.quatLabelB);
+            this.quatCalc.Controls.Add(this.quatLabelA);
+            this.quatCalc.Controls.Add(this.quatDiv);
+            this.quatCalc.Controls.Add(this.quatMult);
+            this.quatCalc.Controls.Add(this.quatSubstr);
+            this.quatCalc.Controls.Add(this.quatSum);
+            this.quatCalc.Location = new System.Drawing.Point(4, 22);
+            this.quatCalc.Name = "quatCalc";
+            this.quatCalc.Size = new System.Drawing.Size(392, 143);
+            this.quatCalc.TabIndex = 3;
+            this.quatCalc.Text = "Кватернионы";
+            this.quatCalc.UseVisualStyleBackColor = true;
             // 
-            // quantVecZRes
+            // quatVecZRes
             // 
-            this.quantVecZRes.Location = new System.Drawing.Point(181, 106);
-            this.quantVecZRes.Name = "quantVecZRes";
-            this.quantVecZRes.Size = new System.Drawing.Size(40, 20);
-            this.quantVecZRes.TabIndex = 18;
+            this.quatVecZRes.Location = new System.Drawing.Point(181, 106);
+            this.quatVecZRes.Name = "quatVecZRes";
+            this.quatVecZRes.Size = new System.Drawing.Size(40, 20);
+            this.quatVecZRes.TabIndex = 18;
             // 
-            // quantVecYRes
+            // quatVecYRes
             // 
-            this.quantVecYRes.Location = new System.Drawing.Point(135, 106);
-            this.quantVecYRes.Name = "quantVecYRes";
-            this.quantVecYRes.Size = new System.Drawing.Size(40, 20);
-            this.quantVecYRes.TabIndex = 17;
+            this.quatVecYRes.Location = new System.Drawing.Point(135, 106);
+            this.quatVecYRes.Name = "quatVecYRes";
+            this.quatVecYRes.Size = new System.Drawing.Size(40, 20);
+            this.quatVecYRes.TabIndex = 17;
             // 
-            // quantVecXRes
+            // quatVecXRes
             // 
-            this.quantVecXRes.Location = new System.Drawing.Point(89, 106);
-            this.quantVecXRes.Name = "quantVecXRes";
-            this.quantVecXRes.Size = new System.Drawing.Size(40, 20);
-            this.quantVecXRes.TabIndex = 16;
+            this.quatVecXRes.Location = new System.Drawing.Point(89, 106);
+            this.quatVecXRes.Name = "quatVecXRes";
+            this.quatVecXRes.Size = new System.Drawing.Size(40, 20);
+            this.quatVecXRes.TabIndex = 16;
             // 
-            // quantRealRes
+            // quatRealRes
             // 
-            this.quantRealRes.Location = new System.Drawing.Point(23, 106);
-            this.quantRealRes.Name = "quantRealRes";
-            this.quantRealRes.Size = new System.Drawing.Size(60, 20);
-            this.quantRealRes.TabIndex = 15;
+            this.quatRealRes.Location = new System.Drawing.Point(23, 106);
+            this.quatRealRes.Name = "quatRealRes";
+            this.quatRealRes.Size = new System.Drawing.Size(60, 20);
+            this.quatRealRes.TabIndex = 15;
             // 
             // label2
             // 
@@ -446,119 +446,119 @@ namespace Calculator
             this.label2.TabIndex = 14;
             this.label2.Text = "Результат";
             // 
-            // quantVecZB
+            // quatVecZB
             // 
-            this.quantVecZB.Location = new System.Drawing.Point(251, 48);
-            this.quantVecZB.Name = "quantVecZB";
-            this.quantVecZB.Size = new System.Drawing.Size(21, 20);
-            this.quantVecZB.TabIndex = 13;
+            this.quatVecZB.Location = new System.Drawing.Point(251, 48);
+            this.quatVecZB.Name = "quatVecZB";
+            this.quatVecZB.Size = new System.Drawing.Size(21, 20);
+            this.quatVecZB.TabIndex = 13;
             // 
-            // quantVecYB
+            // quatVecYB
             // 
-            this.quantVecYB.Location = new System.Drawing.Point(224, 48);
-            this.quantVecYB.Name = "quantVecYB";
-            this.quantVecYB.Size = new System.Drawing.Size(21, 20);
-            this.quantVecYB.TabIndex = 12;
+            this.quatVecYB.Location = new System.Drawing.Point(224, 48);
+            this.quatVecYB.Name = "quatVecYB";
+            this.quatVecYB.Size = new System.Drawing.Size(21, 20);
+            this.quatVecYB.TabIndex = 12;
             // 
-            // quantVecXB
+            // quatVecXB
             // 
-            this.quantVecXB.Location = new System.Drawing.Point(197, 48);
-            this.quantVecXB.Name = "quantVecXB";
-            this.quantVecXB.Size = new System.Drawing.Size(21, 20);
-            this.quantVecXB.TabIndex = 11;
+            this.quatVecXB.Location = new System.Drawing.Point(197, 48);
+            this.quatVecXB.Name = "quatVecXB";
+            this.quatVecXB.Size = new System.Drawing.Size(21, 20);
+            this.quatVecXB.TabIndex = 11;
             // 
-            // quantRealB
+            // quatRealB
             // 
-            this.quantRealB.Location = new System.Drawing.Point(158, 48);
-            this.quantRealB.Name = "quantRealB";
-            this.quantRealB.Size = new System.Drawing.Size(33, 20);
-            this.quantRealB.TabIndex = 10;
+            this.quatRealB.Location = new System.Drawing.Point(158, 48);
+            this.quatRealB.Name = "quatRealB";
+            this.quatRealB.Size = new System.Drawing.Size(33, 20);
+            this.quatRealB.TabIndex = 10;
             // 
-            // quantVecZA
+            // quatVecZA
             // 
-            this.quantVecZA.Location = new System.Drawing.Point(116, 48);
-            this.quantVecZA.Name = "quantVecZA";
-            this.quantVecZA.Size = new System.Drawing.Size(21, 20);
-            this.quantVecZA.TabIndex = 9;
+            this.quatVecZA.Location = new System.Drawing.Point(116, 48);
+            this.quatVecZA.Name = "quatVecZA";
+            this.quatVecZA.Size = new System.Drawing.Size(21, 20);
+            this.quatVecZA.TabIndex = 9;
             // 
-            // quantVecYA
+            // quatVecYA
             // 
-            this.quantVecYA.Location = new System.Drawing.Point(89, 48);
-            this.quantVecYA.Name = "quantVecYA";
-            this.quantVecYA.Size = new System.Drawing.Size(21, 20);
-            this.quantVecYA.TabIndex = 8;
+            this.quatVecYA.Location = new System.Drawing.Point(89, 48);
+            this.quatVecYA.Name = "quatVecYA";
+            this.quatVecYA.Size = new System.Drawing.Size(21, 20);
+            this.quatVecYA.TabIndex = 8;
             // 
-            // quantVecXA
+            // quatVecXA
             // 
-            this.quantVecXA.Location = new System.Drawing.Point(62, 48);
-            this.quantVecXA.Name = "quantVecXA";
-            this.quantVecXA.Size = new System.Drawing.Size(21, 20);
-            this.quantVecXA.TabIndex = 7;
+            this.quatVecXA.Location = new System.Drawing.Point(62, 48);
+            this.quatVecXA.Name = "quatVecXA";
+            this.quatVecXA.Size = new System.Drawing.Size(21, 20);
+            this.quatVecXA.TabIndex = 7;
             // 
-            // quantRealA
+            // quatRealA
             // 
-            this.quantRealA.Location = new System.Drawing.Point(23, 48);
-            this.quantRealA.Name = "quantRealA";
-            this.quantRealA.Size = new System.Drawing.Size(33, 20);
-            this.quantRealA.TabIndex = 6;
+            this.quatRealA.Location = new System.Drawing.Point(23, 48);
+            this.quatRealA.Name = "quatRealA";
+            this.quatRealA.Size = new System.Drawing.Size(33, 20);
+            this.quatRealA.TabIndex = 6;
             // 
-            // quantLabelB
+            // quatLabelB
             // 
-            this.quantLabelB.AutoSize = true;
-            this.quantLabelB.Location = new System.Drawing.Point(155, 24);
-            this.quantLabelB.Name = "quantLabelB";
-            this.quantLabelB.Size = new System.Drawing.Size(49, 13);
-            this.quantLabelB.TabIndex = 5;
-            this.quantLabelB.Text = "Число B";
+            this.quatLabelB.AutoSize = true;
+            this.quatLabelB.Location = new System.Drawing.Point(155, 24);
+            this.quatLabelB.Name = "quatLabelB";
+            this.quatLabelB.Size = new System.Drawing.Size(49, 13);
+            this.quatLabelB.TabIndex = 5;
+            this.quatLabelB.Text = "Число B";
             // 
-            // quantLabelA
+            // quatLabelA
             // 
-            this.quantLabelA.AutoSize = true;
-            this.quantLabelA.Location = new System.Drawing.Point(20, 24);
-            this.quantLabelA.Name = "quantLabelA";
-            this.quantLabelA.Size = new System.Drawing.Size(49, 13);
-            this.quantLabelA.TabIndex = 4;
-            this.quantLabelA.Text = "Число А";
+            this.quatLabelA.AutoSize = true;
+            this.quatLabelA.Location = new System.Drawing.Point(20, 24);
+            this.quatLabelA.Name = "quatLabelA";
+            this.quatLabelA.Size = new System.Drawing.Size(49, 13);
+            this.quatLabelA.TabIndex = 4;
+            this.quatLabelA.Text = "Число А";
             // 
-            // quantDiv
+            // quatDiv
             // 
-            this.quantDiv.Location = new System.Drawing.Point(286, 106);
-            this.quantDiv.Name = "quantDiv";
-            this.quantDiv.Size = new System.Drawing.Size(100, 23);
-            this.quantDiv.TabIndex = 3;
-            this.quantDiv.Text = "Частное";
-            this.quantDiv.UseVisualStyleBackColor = true;
-            this.quantDiv.Click += new System.EventHandler(this.quantDiv_Click);
+            this.quatDiv.Location = new System.Drawing.Point(286, 106);
+            this.quatDiv.Name = "quatDiv";
+            this.quatDiv.Size = new System.Drawing.Size(100, 23);
+            this.quatDiv.TabIndex = 3;
+            this.quatDiv.Text = "Частное";
+            this.quatDiv.UseVisualStyleBackColor = true;
+            this.quatDiv.Click += new System.EventHandler(this.quatDiv_Click);
             // 
-            // quantMult
+            // quatMult
             // 
-            this.quantMult.Location = new System.Drawing.Point(286, 77);
-            this.quantMult.Name = "quantMult";
-            this.quantMult.Size = new System.Drawing.Size(100, 23);
-            this.quantMult.TabIndex = 2;
-            this.quantMult.Text = "Произведение";
-            this.quantMult.UseVisualStyleBackColor = true;
-            this.quantMult.Click += new System.EventHandler(this.quantMult_Click);
+            this.quatMult.Location = new System.Drawing.Point(286, 77);
+            this.quatMult.Name = "quatMult";
+            this.quatMult.Size = new System.Drawing.Size(100, 23);
+            this.quatMult.TabIndex = 2;
+            this.quatMult.Text = "Произведение";
+            this.quatMult.UseVisualStyleBackColor = true;
+            this.quatMult.Click += new System.EventHandler(this.quatMult_Click);
             // 
-            // quantSubstr
+            // quatSubstr
             // 
-            this.quantSubstr.Location = new System.Drawing.Point(286, 48);
-            this.quantSubstr.Name = "quantSubstr";
-            this.quantSubstr.Size = new System.Drawing.Size(100, 23);
-            this.quantSubstr.TabIndex = 1;
-            this.quantSubstr.Text = "Разность";
-            this.quantSubstr.UseVisualStyleBackColor = true;
-            this.quantSubstr.Click += new System.EventHandler(this.quantSubstr_Click);
+            this.quatSubstr.Location = new System.Drawing.Point(286, 48);
+            this.quatSubstr.Name = "quatSubstr";
+            this.quatSubstr.Size = new System.Drawing.Size(100, 23);
+            this.quatSubstr.TabIndex = 1;
+            this.quatSubstr.Text = "Разность";
+            this.quatSubstr.UseVisualStyleBackColor = true;
+            this.quatSubstr.Click += new System.EventHandler(this.quatSubstr_Click);
             // 
-            // quantSum
+            // quatSum
             // 
-            this.quantSum.Location = new System.Drawing.Point(286, 19);
-            this.quantSum.Name = "quantSum";
-            this.quantSum.Size = new System.Drawing.Size(100, 23);
-            this.quantSum.TabIndex = 0;
-            this.quantSum.Text = "Сумма";
-            this.quantSum.UseVisualStyleBackColor = true;
-            this.quantSum.Click += new System.EventHandler(this.quantSum_Click);
+            this.quatSum.Location = new System.Drawing.Point(286, 19);
+            this.quatSum.Name = "quatSum";
+            this.quatSum.Size = new System.Drawing.Size(100, 23);
+            this.quatSum.TabIndex = 0;
+            this.quatSum.Text = "Сумма";
+            this.quatSum.UseVisualStyleBackColor = true;
+            this.quatSum.Click += new System.EventHandler(this.quatSum_Click);
             // 
             // moduleNCalc
             // 
@@ -698,8 +698,8 @@ namespace Calculator
             this.realCalc.PerformLayout();
             this.complexCalc.ResumeLayout(false);
             this.complexCalc.PerformLayout();
-            this.quantCalc.ResumeLayout(false);
-            this.quantCalc.PerformLayout();
+            this.quatCalc.ResumeLayout(false);
+            this.quatCalc.PerformLayout();
             this.moduleNCalc.ResumeLayout(false);
             this.moduleNCalc.PerformLayout();
             this.ResumeLayout(false);
@@ -711,7 +711,7 @@ namespace Calculator
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage realCalc;
         private System.Windows.Forms.TabPage complexCalc;
-        private System.Windows.Forms.TabPage quantCalc;
+        private System.Windows.Forms.TabPage quatCalc;
         private System.Windows.Forms.TabPage moduleNCalc;
         private System.Windows.Forms.TextBox realRes;
         private System.Windows.Forms.Button realDiv;
@@ -739,25 +739,25 @@ namespace Calculator
         private System.Windows.Forms.Label complexImgLabelRes;
         private System.Windows.Forms.TextBox complexImgRes;
         private System.Windows.Forms.TextBox complexRealRes;
-        private System.Windows.Forms.Button quantDiv;
-        private System.Windows.Forms.Button quantMult;
-        private System.Windows.Forms.Button quantSubstr;
-        private System.Windows.Forms.Button quantSum;
-        private System.Windows.Forms.Label quantLabelA;
-        private System.Windows.Forms.Label quantLabelB;
-        private System.Windows.Forms.TextBox quantVecZB;
-        private System.Windows.Forms.TextBox quantVecYB;
-        private System.Windows.Forms.TextBox quantVecXB;
-        private System.Windows.Forms.TextBox quantRealB;
-        private System.Windows.Forms.TextBox quantVecZA;
-        private System.Windows.Forms.TextBox quantVecYA;
-        private System.Windows.Forms.TextBox quantVecXA;
-        private System.Windows.Forms.TextBox quantRealA;
+        private System.Windows.Forms.Button quatDiv;
+        private System.Windows.Forms.Button quatMult;
+        private System.Windows.Forms.Button quatSubstr;
+        private System.Windows.Forms.Button quatSum;
+        private System.Windows.Forms.Label quatLabelA;
+        private System.Windows.Forms.Label quatLabelB;
+        private System.Windows.Forms.TextBox quatVecZB;
+        private System.Windows.Forms.TextBox quatVecYB;
+        private System.Windows.Forms.TextBox quatVecXB;
+        private System.Windows.Forms.TextBox quatRealB;
+        private System.Windows.Forms.TextBox quatVecZA;
+        private System.Windows.Forms.TextBox quatVecYA;
+        private System.Windows.Forms.TextBox quatVecXA;
+        private System.Windows.Forms.TextBox quatRealA;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox quantVecZRes;
-        private System.Windows.Forms.TextBox quantVecYRes;
-        private System.Windows.Forms.TextBox quantVecXRes;
-        private System.Windows.Forms.TextBox quantRealRes;
+        private System.Windows.Forms.TextBox quatVecZRes;
+        private System.Windows.Forms.TextBox quatVecYRes;
+        private System.Windows.Forms.TextBox quatVecXRes;
+        private System.Windows.Forms.TextBox quatRealRes;
         private System.Windows.Forms.Label modLabelA;
         private System.Windows.Forms.Button modDiv;
         private System.Windows.Forms.Button modMult;
