@@ -1,360 +1,340 @@
 ﻿using System;
-using System.Windows;
 using System.Numerics;
 using System.Windows.Forms;
 
 namespace Calculator
 {
+    /// <summary>
+    /// Класс формы, открывающейся при запуске калькулятора.
+    /// Содержит методы, обрабатывающие события "нажатие кнопки".
+    /// </summary>
     public partial class Form1 : Form
     {
-        realCalc realnumCalc = new realCalc(); //Класс для операций с действительными
-        complexCalc complexnumCalc = new complexCalc(); //Класс для операций с комплексными
-        quantCalc quantnumCalc = new quantCalc(); //Класс для операций с кватернионами
-        moduleCalc modnumCalc = new moduleCalc(); //Класс для операций с числами по модулю
+        /// <summary>
+        /// Экземпляр класса для работы с действительными числами.
+        /// Действительное число - числа, которые могут быть записаны в виде конечной или бесконечной десятичной дроби.
+        /// </summary>
+        RealNum realnumCalc = new RealNum(); 
+        /// <summary>
+        /// Экземпляр класса для работы с комплексными числами.
+        /// Комплексные числа - числа вида a+ib, где a - вещественная часть, b - множитель при мнимой единице i.
+        /// </summary>
+        ComplexNum complexnumCalc = new ComplexNum();
+        /// <summary>
+        /// Экземпляр класса для работы с кватернионами.
+        /// Кватернионы — система гиперкомплексных чисел, образующая векторное пространство с размерностью 4 над полем вещественных чисел.
+        /// </summary>
+        QuaternionNum quatnumCalc = new QuaternionNum();
+        /// <summary>
+        /// Экземпляр класса для работы с числами по модулю N.
+        /// Число по модулю N - выражение типа M(mod N) равняющееся остатку от деления M на N.
+        /// </summary>
+        ModNum modnumCalc = new ModNum();
 
+        /// <summary>
+        /// Инициализация формы.
+        /// </summary>
         public Form1()
         {
-            InitializeComponent(); //Запуск формы
+            InitializeComponent();
         }
-
+        /// <summary>
+        /// Метод получения значений действительных чисел A и B из соответствующих полей.
+        /// После получения значений они конвертируются в формат double.
+        /// Если значения неверны - пользователь получит сообщение об ошибке.
+        /// </summary>
         private void realGetNumbers()
         {
             try
             {
-                realnumCalc.aReal = Convert.ToDouble(realA.Text); //Получение значения из поля А
-                realnumCalc.bReal = Convert.ToDouble(realB.Text); //Получение значения из поля В
+                realnumCalc = new RealNum(Convert.ToDouble(realA.Text), Convert.ToDouble(realB.Text)); //Получение значений из полей 
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message); //Если значение в поле некорректно - уведомляем пользователя
+                MessageBox.Show(ex.Message); //Если значение в полях некорректно - уведомляем пользователя
             }
         }
-
+        /// <summary>
+        /// Метод обновления значения поля "Результат". Вызывается после проведения вычислений.
+        /// </summary>
         private void updateRealRes()
         {
-            realRes.Text = Convert.ToString(realnumCalc.realResult); //Обновление значения в поле результата
+            realRes.Text = Convert.ToString(realnumCalc.getRes()); //Обновление значения в поле результата
         }
-
+        /// <summary>
+        /// Метод обработки события "Нажата кнопка "Сумма" на вкладке "Действительные числа".
+        /// Производится сложение действительных чисел, вызывается метод обновления значения в поле "Результат".
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void realSum_Click(object sender, EventArgs e)
         {
             realGetNumbers(); //Получение значений из полей
-            realnumCalc.realSum(); //Сумма действительных
+            realnumCalc.findSum(); //Сумма действительных
             updateRealRes(); //Обновление значения поля результата 
         }
-
+        /// <summary>
+        /// Метод обработки события "Нажата кнопка "Разность" на вкладке "Действительные числа".
+        /// Производится вычитание действительных чисел, вызывается метод обновления значения в поле "Результат".
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void realSubstr_Click(object sender, EventArgs e)
         {
             realGetNumbers(); //Получение значений из полей
-            realnumCalc.realSubstr(); //Вычитание действительных
+            realnumCalc.findSubstr(); //Вычитание действительных
             updateRealRes(); //Обновление значения поля результата 
         }
-
+        /// <summary>
+        /// Метод обработки события "Нажата кнопка "Произведение" на вкладке "Действительные числа".
+        /// Производится умножение действительных чисел, вызывается метод обновления значения в поле "Результат".
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void realMult_Click(object sender, EventArgs e)
         {
             realGetNumbers(); //Получение значений из полей
-            realnumCalc.realMult(); //Произведение действительных
+            realnumCalc.findMult(); //Произведение действительных
             updateRealRes(); //Обновление значения поля результата 
         }
-
+        /// <summary>
+        /// Метод обработки события "Нажата кнопка "Частное" на вкладке "Действительные числа".
+        /// Производится деление действительных чисел, вызывается метод обновления значения в поле "Результат".
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void realDiv_Click(object sender, EventArgs e)
         {
             realGetNumbers(); //Получение значений из полей
-            realnumCalc.realDiv(); //Частное действительных
+            realnumCalc.findDiv(); //Частное действительных
             updateRealRes(); //Обновление значения поля результата 
         }
-
+        /// <summary>
+        /// Метод получения действительных и мнимых частей комплексных чисел A и B из соответствующих полей.
+        /// После получения значений все части чисел конвертируются в формат double.
+        /// Если значения неверны - пользователь получит сообщение об ошибке.
+        /// </summary>
         private void complexGetNum()
         {
             try
             {
-                complexnumCalc.aComplexReal = Convert.ToDouble(complexRealA.Text); //Получение значения реальной части А
-                complexnumCalc.bComplexReal = Convert.ToDouble(complexRealB.Text); //Получение значения реальной части В
-                complexnumCalc.aComplexImg = Convert.ToDouble(complexImgA.Text); //Получение значения мнимой части А
-                complexnumCalc.bComplexImg = Convert.ToDouble(complexImgB.Text); //Получение значения мнимой части В
+                complexnumCalc = new ComplexNum(Convert.ToDouble(complexRealA.Text), Convert.ToDouble(complexImgA.Text),
+                    Convert.ToDouble(complexRealB.Text), Convert.ToDouble(complexImgB.Text));
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message); //Если значение в поле некорректно - уведомляем пользователя
             }
         }
-
+        /// <summary>
+        /// Метод обновления значения поля "Результат" для комплексных чисел. Вызывается после проведения вычислений.
+        /// </summary>
         private void updateComplexRes()
         {
-            complexRealRes.Text = Convert.ToString(complexnumCalc.resComplexReal); //Обновление значения в поле реальной части результата
-            complexImgRes.Text = Convert.ToString(complexnumCalc.resComplexImg); //Обновление значения в поле мнимой части результата
+            double bufReal, bufImg;
+            complexnumCalc.getRes(out bufReal, out bufImg);
+            complexRealRes.Text = Convert.ToString(bufReal); //Обновление значения в поле реальной части результата
+            complexImgRes.Text = Convert.ToString(bufImg); //Обновление значения в поле мнимой части результата
         }
-
+        /// <summary>
+        /// Метод обработки события "Нажата кнопка "Сумма" на вкладке "Комплексные числа".
+        /// Производится сложение комплексных чисел, вызывается метод обновления значений в поле "Результат".
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void complexSum_Click(object sender, EventArgs e)
         {
             complexGetNum(); //Получение значений из полей
-            complexnumCalc.complexSum(); //Сумма комплексных
+            complexnumCalc.findSum(); //Сумма комплексных
             updateComplexRes(); //Обновление значения поля результата 
         }
-
+        /// <summary>
+        /// Метод обработки события "Нажата кнопка "Разность" на вкладке "Комплексные числа".
+        /// Производится вычитание комплексных чисел, вызывается метод обновления значений в поле "Результат".
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void complexSubstr_Click(object sender, EventArgs e)
         {
             complexGetNum(); //Получение значений из полей
-            complexnumCalc.complexSubstr(); //Вычитание комплексных
+            complexnumCalc.findSubstr(); //Вычитание комплексных
             updateComplexRes(); //Обновление значения поля результата 
         }
-
+        /// <summary>
+        /// Метод обработки события "Нажата кнопка "Произведение" на вкладке "Комплексные числа".
+        /// Производится умножение комплексных чисел, вызывается метод обновления значений в поле "Результат".
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void complexMult_Click(object sender, EventArgs e)
         {
             complexGetNum(); //Получение значений из полей
-            complexnumCalc.complexMult(); //Произведение комплексных
+            complexnumCalc.findMult(); //Произведение комплексных
             updateComplexRes(); //Обновление значения поля результата 
         }
-
+        /// <summary>
+        /// Метод обработки события "Нажата кнопка "Частное" на вкладке "Комплексные числа".
+        /// Производится деление комплексных чисел, вызывается метод обновления значений в поле "Результат".
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void complexDiv_Click(object sender, EventArgs e)
         {
             complexGetNum(); //Получение значений из полей
-            complexnumCalc.complexDiv(); //Частное комплексных
+            complexnumCalc.findDiv(); //Частное комплексных
             updateComplexRes(); //Обновление значения поля результата 
         }
-
-        private void updateQuantRes()
+        /// <summary>
+        /// Метод обновления значения полей "Результат" для кватернионов. Вызывается после проведения вычислений.
+        /// </summary>
+        private void updatequatRes()
         {
-            quantRealRes.Text = Convert.ToString(quantnumCalc.resQuantReal); //Обновление значения в поле реальной части результата
-            quantVecXRes.Text = Convert.ToString(quantnumCalc.vectorRes.X); //Обновление значения в поле X-координаты части результата
-            quantVecYRes.Text = Convert.ToString(quantnumCalc.vectorRes.Y); //Обновление значения в поле Y-координаты части результата
-            quantVecZRes.Text = Convert.ToString(quantnumCalc.vectorRes.Z); //Обновление значения в поле Z-координаты части результата
-        }
+            float bufReal;
+            Vector3 bufVector;
+            quatnumCalc.getRes(out bufReal, out bufVector);
 
-        public void quantGetNum()
+            quatRealRes.Text = Convert.ToString(bufReal); //Обновление значения в поле реальной части результата
+            quatVecXRes.Text = Convert.ToString(bufVector.X); //Обновление значения в поле X-координаты части результата
+            quatVecYRes.Text = Convert.ToString(bufVector.Y); //Обновление значения в поле Y-координаты части результата
+            quatVecZRes.Text = Convert.ToString(bufVector.Z); //Обновление значения в поле Z-координаты части результата
+        }
+        /// <summary>
+        /// Метод получения векторных и действительных частей кватернионов A и B из соответствующих полей.
+        /// После получения значений все части чисел конвертируются в формат float (single).
+        /// Если значения неверны - пользователь получит сообщение об ошибке.
+        /// </summary>
+        public void quatGetNum()
         {
             try
             {
-                quantnumCalc.aQuantReal = Convert.ToSingle(quantRealA.Text); //Получение значения реальной части кватерниона А
-                quantnumCalc.aVecX = Convert.ToSingle(quantVecXA.Text); //Получение значения X-координаты кватерниона А
-                quantnumCalc.aVecY = Convert.ToSingle(quantVecYA.Text); //Получение значения Y-координаты кватерниона А
-                quantnumCalc.aVecZ = Convert.ToSingle(quantVecZA.Text); //Получение значения Z-координаты кватерниона А
-
-                quantnumCalc.bQuantReal = Convert.ToSingle(quantRealB.Text); //Получение значения реальной части кватерниона В
-                quantnumCalc.bVecX = Convert.ToSingle(quantVecXB.Text); //Получение значения X-координаты кватерниона B
-                quantnumCalc.bVecY = Convert.ToSingle(quantVecYB.Text); //Получение значения Y-координаты кватерниона B
-                quantnumCalc.bVecZ = Convert.ToSingle(quantVecZB.Text); //Получение значения Z-координаты кватерниона B
+                quatnumCalc = new QuaternionNum(Convert.ToSingle(quatRealA.Text), Convert.ToSingle(quatVecXA.Text),
+                    Convert.ToSingle(quatVecYA.Text), Convert.ToSingle(quatVecZA.Text), Convert.ToSingle(quatRealB.Text),
+                    Convert.ToSingle(quatVecXB.Text), Convert.ToSingle(quatVecYB.Text), Convert.ToSingle(quatVecZB.Text));
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message); //Если значение в поле некорректно - уведомляем пользователя
             }
         }
-
-        private void quantSum_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Метод обработки события "Нажата кнопка "Сумма" на вкладке "Кватернионы".
+        /// Производится сложение кватернионов, вызывается метод обновления значений в полях типа "Результат". 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void quatSum_Click(object sender, EventArgs e)
         {
-            quantGetNum(); //Получение значений из полей
-            quantnumCalc.quantSum(); //Сумма кватернионов
-            updateQuantRes(); //Обновление значения поля результата 
+            quatGetNum(); //Получение значений из полей
+            quatnumCalc.findSum(); //Сумма кватернионов
+            updatequatRes(); //Обновление значения поля результата 
         }
-
-        private void quantSubstr_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Метод обработки события "Нажата кнопка "Разность" на вкладке "Кватернионы".
+        /// Производится вычитание кватернионов, вызывается метод обновления значений в полях типа "Результат". 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void quatSubstr_Click(object sender, EventArgs e)
         {
-            quantGetNum(); //Получение значений из полей
-            quantnumCalc.quantSubstr(); //Вычитание кватернионов
-            updateQuantRes(); //Обновление значения поля результата 
+            quatGetNum(); //Получение значений из полей
+            quatnumCalc.findSubstr(); //Вычитание кватернионов
+            updatequatRes(); //Обновление значения поля результата 
         }
-
-        private void quantMult_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Метод обработки события "Нажата кнопка "Произведение" на вкладке "Кватернионы".
+        /// Производится умножение кватернионов, вызывается метод обновления значений в полях типа "Результат". 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void quatMult_Click(object sender, EventArgs e)
         {
-            quantGetNum(); //Получение значений из полей
-            quantnumCalc.quantMult(); //Произведение кватернионов
-            updateQuantRes(); //Обновление значения поля результата 
+            quatGetNum(); //Получение значений из полей
+            quatnumCalc.findMult(); //Произведение кватернионов
+            updatequatRes(); //Обновление значения поля результата 
         }
-
-        private void quantDiv_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Метод обработки события "Нажата кнопка "Частное" на вкладке "Кватернионы".
+        /// Производится деление кватернионов, вызывается метод обновления значений в полях типа "Результат". 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void quatDiv_Click(object sender, EventArgs e)
         {
-            quantGetNum(); //Получение значений из полей
-            quantnumCalc.quantDiv(); //Частное кватернионов
-            updateQuantRes(); //Обновление значения поля результата 
+            quatGetNum(); //Получение значений из полей
+            quatnumCalc.findDiv(); //Частное кватернионов
+            updatequatRes(); //Обновление значения поля результата 
         }
-
+        /// <summary>
+        /// Метод получения значений чисел A,B и модуля N из соответствующих полей.
+        /// После все значения чисел конвертируются в формат int.
+        /// Если значения неверны - пользователь получит сообщение об ошибке.
+        /// </summary>
         private void modGetNum()
         {
             try
             {
-                modnumCalc.aMod = Convert.ToInt32(modNumA.Text); //Получение значения числа А из поля
-                modnumCalc.bMod = Convert.ToInt32(modNumB.Text); //Получение значения числа В из поля
-                modnumCalc.nMod = Convert.ToInt32(modNumN.Text); //Получение модуля из поля
+                modnumCalc = new ModNum(Convert.ToInt32(modNumA.Text), Convert.ToInt32(modNumB.Text),
+                    Convert.ToInt32(modNumN.Text));
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message); //Если значение в поле некорректно - уведомляем пользователя
             }
         }
-
+        /// <summary>
+        /// Метод обновления значения поля "Результат" для чисел по модулю N. Вызывается после проведения вычислений.
+        /// </summary>
         private void updateMouleRes()
         {
-            modRes.Text = Convert.ToString(modnumCalc.res); //Обновление результата в поле
+            modRes.Text = Convert.ToString(modnumCalc.getRes()); //Обновление результата в поле
         }
-
+        /// <summary>
+        /// Метод обработки события "Нажата кнопка "Сумма" на вкладке "Числа по модулю N".
+        /// Производится сложение чисел по модулю, вызывается метод обновления значения в поле "Результат". 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void modSum_Click(object sender, EventArgs e)
         {
             modGetNum(); //Получение значений из полей
-            modnumCalc.modSum(); //Сумма чисел по модулю
+            modnumCalc.findSum(); //Сумма чисел по модулю
             updateMouleRes(); //Обновление результата
         }
-
+        /// <summary>
+        /// Метод обработки события "Нажата кнопка "Разность" на вкладке "Числа по модулю N".
+        /// Производится вычитание чисел по модулю, вызывается метод обновления значения в поле "Результат". 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void modSubstr_Click(object sender, EventArgs e)
         {
             modGetNum(); //Получение значений из полей
-            modnumCalc.modSubstr(); //Вычитание чисел по модулю
+            modnumCalc.findSubstr(); //Вычитание чисел по модулю
             updateMouleRes(); //Обновление результата
         }
-
+        /// <summary>
+        /// Метод обработки события "Нажата кнопка "Произведение" на вкладке "Числа по модулю N".
+        /// Производится умножение чисел по модулю, вызывается метод обновления значения в поле "Результат". 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void modMult_Click(object sender, EventArgs e)
         {
             modGetNum(); //Получение значений из полей
-            modnumCalc.modMult(); //Произведение чисел по модулю
+            modnumCalc.findMult(); //Произведение чисел по модулю
             updateMouleRes(); //Обновление результата
         }
-
+        /// <summary>
+        /// Метод обработки события "Нажата кнопка "Частное" на вкладке "Числа по модулю N".
+        /// Производится деление чисел по модулю, вызывается метод обновления значения в поле "Результат". 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void modDiv_Click(object sender, EventArgs e)
         {
             modGetNum(); //Получение значений из полей
-            modnumCalc.modDiv(); //Частное чисел по модулю
+            modnumCalc.findDiv(); //Частное чисел по модулю
             updateMouleRes(); //Обновление результата
-        }
-    }
-
-    public class realCalc
-    {
-        public double aReal, bReal; //Действительные числа
-        public double realResult; //Результат
-
-        public void realSum()
-        {
-            realResult = aReal + bReal; //Сумма
-        }
-
-        public void realSubstr()
-        {
-            realResult = aReal - bReal; //Разность
-        }
-
-        public void realMult()
-        {
-            realResult = aReal * bReal; //Произведение
-        }
-
-        public void realDiv()
-        {
-            realResult = aReal / bReal; //Частное
-        }
-    }
-
-    public class complexCalc
-    {
-        public double aComplexReal, bComplexReal; //Комплексные (действительная часть)
-        public double aComplexImg, bComplexImg; //Комплексные (мнимая часть)
-        public double resComplexReal, resComplexImg; //Комплексные (результат)
-
-        public void complexSum()
-        {
-            resComplexReal = aComplexReal + bComplexReal; //Сумма реальных частей
-            resComplexImg = aComplexImg + bComplexImg; //Сумма мнимых частей
-        }
-
-        public void complexSubstr()
-        {
-            resComplexReal = aComplexReal - bComplexReal; //Разность реальных частей
-            resComplexImg = aComplexImg - bComplexImg; //Разность мнимых частей
-        }
-
-        public void complexMult()
-        {
-            resComplexReal = aComplexReal * bComplexReal - aComplexImg * bComplexImg; //Произведение реальных частей
-            resComplexImg = bComplexReal * aComplexImg + aComplexReal * bComplexImg; //Произведение мнимых частей
-        }
-
-        public void complexDiv()
-        {
-            resComplexReal = (aComplexReal * bComplexReal + aComplexImg * bComplexImg) / (bComplexReal * bComplexReal + bComplexImg * bComplexImg); //Частное реальных частей
-            resComplexImg = (aComplexImg * bComplexReal - aComplexReal * bComplexImg) / (bComplexReal * bComplexReal + bComplexImg * bComplexImg); //Частное мнимых частей
-        }
-    }
-
-    public class quantCalc
-    {
-        public float aQuantReal, bQuantReal; //кватернионы (действительная часть)
-        public float aVecX, aVecY, aVecZ, bVecX, bVecY, bVecZ; //кватернионы (векторная часть)
-        public float resQuantReal, resVecX, resVecY, resvecZ; //кватернион-результат
-
-        public Vector3 vectorA; //Векторная часть кватерниона А
-        public Vector3 vectorB; //Векторная часть кватерниона В
-        public Vector3 vectorRes; //Векторная часть результирующего кватерниона В
-
-        private void updateVectors()
-        {
-            vectorA = new Vector3(aVecX, aVecY, aVecZ); //Обновление вектора А
-            vectorB = new Vector3(bVecX, bVecY, bVecZ); //Обновление вектора В
-        }
-
-        public void quantSum()
-        {
-            updateVectors(); //Обновление векторов
-            resQuantReal = aQuantReal + bQuantReal; //Сумма реальных частей
-            vectorRes = Vector3.Add(vectorA, vectorB); //Сумма векторов
-        }
-
-        public void quantSubstr()
-        {
-            updateVectors(); //Обновление векторов
-            resQuantReal = aQuantReal - bQuantReal; //Вычитание реальных частей
-            vectorRes = Vector3.Subtract(vectorA, vectorB); //Выычитание векторов
-        }
-
-        public void quantMult()
-        {
-            updateVectors(); //Обновление векторов
-            resQuantReal = aQuantReal * bQuantReal - (float)Vector3.Dot(vectorA, vectorB); //Произведение реальной части
-            vectorRes = Vector3.Cross(vectorA, vectorB) + Vector3.Multiply(bQuantReal, vectorA); //Произведение векторов
-        }
-
-        public void quantDiv()
-        {
-            updateVectors(); //Обновление векторов
-            float norm2 = aQuantReal * aQuantReal + vectorB.X * vectorB.X + vectorB.Y * vectorB.Y + vectorB.Z * vectorB.Z; //Нахождение нормы
-            vectorB = Vector3.Divide(-vectorB, norm2); //Обратный вектор
-            resQuantReal = aQuantReal * bQuantReal - (float)Vector3.Dot(vectorA, vectorB); //Частное реальной части
-            vectorRes = Vector3.Cross(vectorA, vectorB) + Vector3.Multiply(aQuantReal, vectorB) + Vector3.Multiply(bQuantReal, vectorA); //Умножение вектора на обратный
-        }
-    }
-
-    public class moduleCalc
-    {
-        public int aMod, bMod, nMod; //Числа по модулю N
-        public int res; //Результат
-
-        public void modSum()
-        {
-            res = (aMod + bMod) % nMod; //Сумма
-        }
-
-        public void modSubstr()
-        {
-            res = (aMod + nMod - bMod) % nMod; //Вычитание
-        }
-
-        public void modMult()
-        {
-            res = (aMod * bMod) % nMod; //Произведение
-        }
-
-        public void modDiv()
-        {
-            int notPrime = 0;
-            if (nMod > 1)
-            {
-                for (int i = 2; i < nMod; i++) //Проверка основания (простое число)
-                {
-                    if (nMod % i == 0)
-                        notPrime = 1; //Не простое число
-                }
-            }
-            if (notPrime == 1) //Если основание - не простое число
-                MessageBox.Show("Модуль должен быть простым!");
-            else
-                res = (int)(aMod * Math.Pow(bMod, nMod - 2)) % nMod; //Частное
         }
     }
 }
