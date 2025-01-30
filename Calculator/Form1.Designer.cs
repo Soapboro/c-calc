@@ -529,7 +529,7 @@ namespace Calculator
             this.quatDiv.Text = "Частное";
             this.quatDiv.UseVisualStyleBackColor = true;
             this.quatDiv.Click += new System.EventHandler(this.quatDiv_Click);
-            // 
+            //
             // quatMult
             // 
             this.quatMult.Location = new System.Drawing.Point(286, 77);

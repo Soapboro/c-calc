@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Calculator
 {
@@ -64,7 +64,7 @@ namespace Calculator
                 }
             }
             if (notPrime == 1) //Если основание - не простое число
-                MessageBox.Show("Модуль должен быть простым!");
+                throw new Exception("Деление доступно только для простых оснований");
             else
                 res = (int)(aMod * Math.Pow(bMod, nMod - 2)) % nMod; //Частное
         }

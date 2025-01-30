@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Calculator.ComplexNum" BaseTypeListCollapsed="true">
+    <Position X="0.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAAAIAAKAIAAAACAAAAAAQAABAAAA=</HashCode>
+      <FileName>NumberTypes\ComplexNum.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Calculator.ModNum" BaseTypeListCollapsed="true">
+    <Position X="2.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAACAAAAAIAAKAAAAAAAQAAAACQAAAAAAA=</HashCode>
+      <FileName>NumberTypes\ModNum.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Calculator.QuaternionNum" BaseTypeListCollapsed="true">
+    <Position X="6" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAAAIAAKAAACAACAAEAAAQAAAAAAA=</HashCode>
+      <FileName>NumberTypes\QuaternionNum.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Calculator.RealNum" BaseTypeListCollapsed="true">
+    <Position X="4.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAgAAAAAAAAAAIIAKAAAAAAAAAAAAAQAAIAAAA=</HashCode>
+      <FileName>NumberTypes\RealNum.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Calculator.PresenterComplex">
+    <Position X="1" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAIIAAAAAABACAAAAAAAAABAAACAAAAAAAAA=</HashCode>
+      <FileName>Presenters\PresenterComplex.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Calculator.PresenterModular">
+    <Position X="6.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AggEAAAAAAAAACAAAAAAAAAAAAAIAAAEACAAAAAAAAA=</HashCode>
+      <FileName>Presenters\PresenterModular.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Calculator.PresenterQuaternion">
+    <Position X="2.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAgEAAAAAAAAAAAAIAAAAACAQACAAAAAAAAA=</HashCode>
+      <FileName>Presenters\PresenterQuaternion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Calculator.PresenterReal">
+    <Position X="4.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAQAAAAAAAAACAAAACAACAAgAAAAAA=</HashCode>
+      <FileName>Presenters\PresenterReal.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Calculator.Form1">
+    <Position X="12.5" Y="4.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+      <Compartment Name="Events" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>1owigw0CUHJBgHx4opewwI+S6kCeecK0KQRKCZRF3AA=</HashCode>
+      <FileName>Form1.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Calculator.Program">
+    <Position X="10.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Calculator.CalcInterface">
+    <Position X="8" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAAAAAAKAAAAAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>Interface\CalcInterface.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Calculator.IViewComplex">
+    <Position X="1" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAIAAEAAAAQAAAAASAAAQAKAAAAAAAAEAAA=</HashCode>
+      <FileName>Views\ViewComplex.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Calculator.IViewModular">
+    <Position X="6.25" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAEAAAAAAAAAQAAAAQAACEEQAAAAAAAAAAgAA=</HashCode>
+      <FileName>Views\ViewModular.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Calculator.IViewQuaternion">
+    <Position X="2.75" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAIAAGAAgIQAAIAAAEAAAIAEAAACAAAAAAA=</HashCode>
+      <FileName>Views\ViewQuaternion.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Calculator.IViewReal">
+    <Position X="4.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAQAAAAAgAAAQAAACAAAAAAAAAIARAAAAAAAA=</HashCode>
+      <FileName>Views\ViewReal.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

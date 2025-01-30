@@ -1,4 +1,6 @@
-﻿namespace Calculator
+﻿using System;
+
+namespace Calculator
 {
     public struct ComplexNumber
     {
@@ -68,10 +70,17 @@
         /// </summary>
         public void findDiv()
         {
-            resComplex.real = (aComplex.real * bComplex.real + aComplex.img * bComplex.img) /
-                (bComplex.real * bComplex.real + bComplex.img * bComplex.img); //Частное реальных частей
-            resComplex.img = (aComplex.img * bComplex.real - aComplex.real * bComplex.img) /
-                (bComplex.real * bComplex.real + bComplex.img * bComplex.img); //Частное мнимых частей
+            if (bComplex.real != 0 && bComplex.img != 0)
+            {
+                resComplex.real = (aComplex.real * bComplex.real + aComplex.img * bComplex.img) /
+                    (bComplex.real * bComplex.real + bComplex.img * bComplex.img); //Частное реальных частей
+                resComplex.img = (aComplex.img * bComplex.real - aComplex.real * bComplex.img) /
+                    (bComplex.real * bComplex.real + bComplex.img * bComplex.img); //Частное мнимых частей
+            }
+            else
+            {
+                throw new Exception("Деление на 0 недопустимо.");
+            }
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace Calculator
+﻿using System;
+
+namespace Calculator
 {
     public class RealNum: CalcInterface
     {
@@ -28,7 +30,7 @@
 
         public void findSubstr()
         {
-            realResult = aReal - bReal; //Разность
+            realResult = aReal - bReal; //Разность   
         }
 
         public void findMult()
@@ -38,7 +40,12 @@
        
         public void findDiv()
         {
-            realResult = aReal / bReal; //Частное
+            if (bReal != 0) {
+                realResult = aReal / bReal; //Частное
+            } else
+            {
+                throw new Exception("Деление на 0 недопустимо.");
+            }
         }
     }
 }

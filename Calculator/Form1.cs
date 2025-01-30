@@ -8,333 +8,265 @@ namespace Calculator
     /// Класс формы, открывающейся при запуске калькулятора.
     /// Содержит методы, обрабатывающие события "нажатие кнопки".
     /// </summary>
-    public partial class Form1 : Form
+    public partial class Form1 : Form, IViewReal, IViewQuaternion, IViewComplex, IViewModular
     {
-        /// <summary>
-        /// Экземпляр класса для работы с действительными числами.
-        /// Действительное число - числа, которые могут быть записаны в виде конечной или бесконечной десятичной дроби.
-        /// </summary>
-        RealNum realnumCalc = new RealNum(); 
-        /// <summary>
-        /// Экземпляр класса для работы с комплексными числами.
-        /// Комплексные числа - числа вида a+ib, где a - вещественная часть, b - множитель при мнимой единице i.
-        /// </summary>
-        ComplexNum complexnumCalc = new ComplexNum();
-        /// <summary>
-        /// Экземпляр класса для работы с кватернионами.
-        /// Кватернионы — система гиперкомплексных чисел, образующая векторное пространство с размерностью 4 над полем вещественных чисел.
-        /// </summary>
-        QuaternionNum quatnumCalc = new QuaternionNum();
-        /// <summary>
-        /// Экземпляр класса для работы с числами по модулю N.
-        /// Число по модулю N - выражение типа M(mod N) равняющееся остатку от деления M на N.
-        /// </summary>
-        ModNum modnumCalc = new ModNum();
+        //private readonly CalculatorPresenter _presenter;
+        private readonly PresenterReal _presenterReal;
+        private readonly PresenterQuaternion _presenterQuaternion;
+        private readonly PresenterComplex _presenterComplex;
+        private readonly PresenterModular _presenterModular;
 
-        /// <summary>
-        /// Инициализация формы.
-        /// </summary>
         public Form1()
         {
             InitializeComponent();
+            _presenterReal = new PresenterReal(this);
+            _presenterQuaternion = new PresenterQuaternion(this);
+            _presenterComplex = new PresenterComplex(this);
+            _presenterModular = new PresenterModular(this);
         }
-        /// <summary>
-        /// Метод получения значений действительных чисел A и B из соответствующих полей.
-        /// После получения значений они конвертируются в формат double.
-        /// Если значения неверны - пользователь получит сообщение об ошибке.
-        /// </summary>
-        private void realGetNumbers()
+
+        #region ICalculatorView Properties
+        // Real numbers
+        public string RealNumberA
         {
-            try
-            {
-                realnumCalc = new RealNum(Convert.ToDouble(realA.Text), Convert.ToDouble(realB.Text)); //Получение значений из полей 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message); //Если значение в полях некорректно - уведомляем пользователя
-            }
+            get => realA.Text;
+            set => realA.Text = value;
         }
-        /// <summary>
-        /// Метод обновления значения поля "Результат". Вызывается после проведения вычислений.
-        /// </summary>
-        private void updateRealRes()
+        public string RealNumberB
         {
-            realRes.Text = Convert.ToString(realnumCalc.getRes()); //Обновление значения в поле результата
+            get => realB.Text;
+            set => realB.Text = value;
         }
-        /// <summary>
-        /// Метод обработки события "Нажата кнопка "Сумма" на вкладке "Действительные числа".
-        /// Производится сложение действительных чисел, вызывается метод обновления значения в поле "Результат".
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        public string RealResult
+        {
+            get => realRes.Text;
+            set => realRes.Text = value;
+        }
+
+        // Complex numbers
+        public string ComplexRealA
+        {
+            get => complexRealA.Text;
+            set => complexRealA.Text = value;
+        }
+        public string ComplexImgA
+        {
+            get => complexImgA.Text;
+            set => complexImgA.Text = value;
+        }
+        public string ComplexRealB
+        {
+            get => complexRealB.Text;
+            set => complexRealB.Text = value;
+        }
+        public string ComplexImgB
+        {
+            get => complexImgB.Text;
+            set => complexImgB.Text = value;
+        }
+        public string ComplexRealResult
+        {
+            get => complexRealRes.Text;
+            set => complexRealRes.Text = value;
+        }
+        public string ComplexImgResult
+        {
+            get => complexImgRes.Text;
+            set => complexImgRes.Text = value;
+        }
+
+        // Quaternion numbers
+        public string QuatRealA
+        {
+            get => quatRealA.Text;
+            set => quatRealA.Text = value;
+        }
+        public string QuatVecXA
+        {
+            get => quatVecXA.Text;
+            set => quatVecXA.Text = value;
+        }
+        public string QuatVecYA
+        {
+            get => quatVecYA.Text;
+            set => quatVecYA.Text = value;
+        }
+        public string QuatVecZA
+        {
+            get => quatVecZA.Text;
+            set => quatVecZA.Text = value;
+        }
+        public string QuatRealB
+        {
+            get => quatRealB.Text;
+            set => quatRealB.Text = value;
+        }
+        public string QuatVecXB
+        {
+            get => quatVecXB.Text;
+            set => quatVecXB.Text = value;
+        }
+        public string QuatVecYB
+        {
+            get => quatVecYB.Text;
+            set => quatVecYB.Text = value;
+        }
+        public string QuatVecZB
+        {
+            get => quatVecZB.Text;
+            set => quatVecZB.Text = value;
+        }
+        public string QuatRealResult
+        {
+            get => quatRealRes.Text;
+            set => quatRealRes.Text = value;
+        }
+        public string QuatVecXResult
+        {
+            get => quatVecXRes.Text;
+            set => quatVecXRes.Text = value;
+        }
+        public string QuatVecYResult
+        {
+            get => quatVecYRes.Text;
+            set => quatVecYRes.Text = value;
+        }
+        public string QuatVecZResult
+        {
+            get => quatVecZRes.Text;
+            set => quatVecZRes.Text = value;
+        }
+
+        // Modular numbers
+        public string ModNumberA
+        {
+            get => modNumA.Text;
+            set => modNumA.Text = value;
+        }
+        public string ModNumberB
+        {
+            get => modNumB.Text;
+            set => modNumB.Text = value;
+        }
+        public string ModNumberN
+        {
+            get => modNumN.Text;
+            set => modNumN.Text = value;
+        }
+        public string ModResult
+        {
+            get => modRes.Text;
+            set => modRes.Text = value;
+        }
+        #endregion
+
+        #region Events
+        public event EventHandler CalculateRealSum;
+        public event EventHandler CalculateRealSubtract;
+        public event EventHandler CalculateRealMultiply;
+        public event EventHandler CalculateRealDivide;
+
+        public event EventHandler CalculateComplexSum;
+        public event EventHandler CalculateComplexSubtract;
+        public event EventHandler CalculateComplexMultiply;
+        public event EventHandler CalculateComplexDivide;
+
+        public event EventHandler CalculateQuaternionSum;
+        public event EventHandler CalculateQuaternionSubtract;
+        public event EventHandler CalculateQuaternionMultiply;
+        public event EventHandler CalculateQuaternionDivide;
+
+        public event EventHandler CalculateModularSum;
+        public event EventHandler CalculateModularSubtract;
+        public event EventHandler CalculateModularMultiply;
+        public event EventHandler CalculateModularDivide;
+        #endregion
+
+        #region Button Click Handlers
         private void realSum_Click(object sender, EventArgs e)
         {
-            realGetNumbers(); //Получение значений из полей
-            realnumCalc.findSum(); //Сумма действительных
-            updateRealRes(); //Обновление значения поля результата 
+            CalculateRealSum?.Invoke(this, EventArgs.Empty);
         }
-        /// <summary>
-        /// Метод обработки события "Нажата кнопка "Разность" на вкладке "Действительные числа".
-        /// Производится вычитание действительных чисел, вызывается метод обновления значения в поле "Результат".
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+
         private void realSubstr_Click(object sender, EventArgs e)
         {
-            realGetNumbers(); //Получение значений из полей
-            realnumCalc.findSubstr(); //Вычитание действительных
-            updateRealRes(); //Обновление значения поля результата 
+            CalculateRealSubtract?.Invoke(this, EventArgs.Empty);
         }
-        /// <summary>
-        /// Метод обработки события "Нажата кнопка "Произведение" на вкладке "Действительные числа".
-        /// Производится умножение действительных чисел, вызывается метод обновления значения в поле "Результат".
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+
         private void realMult_Click(object sender, EventArgs e)
         {
-            realGetNumbers(); //Получение значений из полей
-            realnumCalc.findMult(); //Произведение действительных
-            updateRealRes(); //Обновление значения поля результата 
+            CalculateRealMultiply?.Invoke(this, EventArgs.Empty);
         }
-        /// <summary>
-        /// Метод обработки события "Нажата кнопка "Частное" на вкладке "Действительные числа".
-        /// Производится деление действительных чисел, вызывается метод обновления значения в поле "Результат".
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+
         private void realDiv_Click(object sender, EventArgs e)
         {
-            realGetNumbers(); //Получение значений из полей
-            realnumCalc.findDiv(); //Частное действительных
-            updateRealRes(); //Обновление значения поля результата 
+            CalculateRealDivide?.Invoke(this, EventArgs.Empty);
         }
-        /// <summary>
-        /// Метод получения действительных и мнимых частей комплексных чисел A и B из соответствующих полей.
-        /// После получения значений все части чисел конвертируются в формат double.
-        /// Если значения неверны - пользователь получит сообщение об ошибке.
-        /// </summary>
-        private void complexGetNum()
-        {
-            try
-            {
-                complexnumCalc = new ComplexNum(Convert.ToDouble(complexRealA.Text), Convert.ToDouble(complexImgA.Text),
-                    Convert.ToDouble(complexRealB.Text), Convert.ToDouble(complexImgB.Text));
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message); //Если значение в поле некорректно - уведомляем пользователя
-            }
-        }
-        /// <summary>
-        /// Метод обновления значения поля "Результат" для комплексных чисел. Вызывается после проведения вычислений.
-        /// </summary>
-        private void updateComplexRes()
-        {
-            double bufReal, bufImg;
-            complexnumCalc.getRes(out bufReal, out bufImg);
-            complexRealRes.Text = Convert.ToString(bufReal); //Обновление значения в поле реальной части результата
-            complexImgRes.Text = Convert.ToString(bufImg); //Обновление значения в поле мнимой части результата
-        }
-        /// <summary>
-        /// Метод обработки события "Нажата кнопка "Сумма" на вкладке "Комплексные числа".
-        /// Производится сложение комплексных чисел, вызывается метод обновления значений в поле "Результат".
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void complexSum_Click(object sender, EventArgs e)
-        {
-            complexGetNum(); //Получение значений из полей
-            complexnumCalc.findSum(); //Сумма комплексных
-            updateComplexRes(); //Обновление значения поля результата 
-        }
-        /// <summary>
-        /// Метод обработки события "Нажата кнопка "Разность" на вкладке "Комплексные числа".
-        /// Производится вычитание комплексных чисел, вызывается метод обновления значений в поле "Результат".
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void complexSubstr_Click(object sender, EventArgs e)
-        {
-            complexGetNum(); //Получение значений из полей
-            complexnumCalc.findSubstr(); //Вычитание комплексных
-            updateComplexRes(); //Обновление значения поля результата 
-        }
-        /// <summary>
-        /// Метод обработки события "Нажата кнопка "Произведение" на вкладке "Комплексные числа".
-        /// Производится умножение комплексных чисел, вызывается метод обновления значений в поле "Результат".
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void complexMult_Click(object sender, EventArgs e)
-        {
-            complexGetNum(); //Получение значений из полей
-            complexnumCalc.findMult(); //Произведение комплексных
-            updateComplexRes(); //Обновление значения поля результата 
-        }
-        /// <summary>
-        /// Метод обработки события "Нажата кнопка "Частное" на вкладке "Комплексные числа".
-        /// Производится деление комплексных чисел, вызывается метод обновления значений в поле "Результат".
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void complexDiv_Click(object sender, EventArgs e)
-        {
-            complexGetNum(); //Получение значений из полей
-            complexnumCalc.findDiv(); //Частное комплексных
-            updateComplexRes(); //Обновление значения поля результата 
-        }
-        /// <summary>
-        /// Метод обновления значения полей "Результат" для кватернионов. Вызывается после проведения вычислений.
-        /// </summary>
-        private void updatequatRes()
-        {
-            float bufReal;
-            Vector3 bufVector;
-            quatnumCalc.getRes(out bufReal, out bufVector);
 
-            quatRealRes.Text = Convert.ToString(bufReal); //Обновление значения в поле реальной части результата
-            quatVecXRes.Text = Convert.ToString(bufVector.X); //Обновление значения в поле X-координаты части результата
-            quatVecYRes.Text = Convert.ToString(bufVector.Y); //Обновление значения в поле Y-координаты части результата
-            quatVecZRes.Text = Convert.ToString(bufVector.Z); //Обновление значения в поле Z-координаты части результата
-        }
-        /// <summary>
-        /// Метод получения векторных и действительных частей кватернионов A и B из соответствующих полей.
-        /// После получения значений все части чисел конвертируются в формат float (single).
-        /// Если значения неверны - пользователь получит сообщение об ошибке.
-        /// </summary>
-        public void quatGetNum()
+        private void quatDiv_Click (object sender, EventArgs e)
         {
-            try
-            {
-                quatnumCalc = new QuaternionNum(Convert.ToSingle(quatRealA.Text), Convert.ToSingle(quatVecXA.Text),
-                    Convert.ToSingle(quatVecYA.Text), Convert.ToSingle(quatVecZA.Text), Convert.ToSingle(quatRealB.Text),
-                    Convert.ToSingle(quatVecXB.Text), Convert.ToSingle(quatVecYB.Text), Convert.ToSingle(quatVecZB.Text));
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message); //Если значение в поле некорректно - уведомляем пользователя
-            }
+            CalculateQuaternionDivide?.Invoke(this, EventArgs.Empty);
         }
-        /// <summary>
-        /// Метод обработки события "Нажата кнопка "Сумма" на вкладке "Кватернионы".
-        /// Производится сложение кватернионов, вызывается метод обновления значений в полях типа "Результат". 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void quatSum_Click(object sender, EventArgs e)
+
+        private void quatMult_Click (object sender, EventArgs e)
         {
-            quatGetNum(); //Получение значений из полей
-            quatnumCalc.findSum(); //Сумма кватернионов
-            updatequatRes(); //Обновление значения поля результата 
+            CalculateQuaternionMultiply?.Invoke(this, EventArgs.Empty);
         }
-        /// <summary>
-        /// Метод обработки события "Нажата кнопка "Разность" на вкладке "Кватернионы".
-        /// Производится вычитание кватернионов, вызывается метод обновления значений в полях типа "Результат". 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void quatSubstr_Click(object sender, EventArgs e)
+
+        private void quatSubstr_Click (object sender, EventArgs e)
         {
-            quatGetNum(); //Получение значений из полей
-            quatnumCalc.findSubstr(); //Вычитание кватернионов
-            updatequatRes(); //Обновление значения поля результата 
+            CalculateQuaternionSubtract?.Invoke(this, EventArgs.Empty);
         }
-        /// <summary>
-        /// Метод обработки события "Нажата кнопка "Произведение" на вкладке "Кватернионы".
-        /// Производится умножение кватернионов, вызывается метод обновления значений в полях типа "Результат". 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void quatMult_Click(object sender, EventArgs e)
+        
+        private void quatSum_Click (object sender, EventArgs e)
         {
-            quatGetNum(); //Получение значений из полей
-            quatnumCalc.findMult(); //Произведение кватернионов
-            updatequatRes(); //Обновление значения поля результата 
+            CalculateQuaternionSum?.Invoke(this, EventArgs.Empty);
         }
-        /// <summary>
-        /// Метод обработки события "Нажата кнопка "Частное" на вкладке "Кватернионы".
-        /// Производится деление кватернионов, вызывается метод обновления значений в полях типа "Результат". 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void quatDiv_Click(object sender, EventArgs e)
+
+        private void complexSum_Click (object sender, EventArgs e)
         {
-            quatGetNum(); //Получение значений из полей
-            quatnumCalc.findDiv(); //Частное кватернионов
-            updatequatRes(); //Обновление значения поля результата 
+            CalculateComplexSum?.Invoke(this, EventArgs.Empty);
         }
-        /// <summary>
-        /// Метод получения значений чисел A,B и модуля N из соответствующих полей.
-        /// После все значения чисел конвертируются в формат int.
-        /// Если значения неверны - пользователь получит сообщение об ошибке.
-        /// </summary>
-        private void modGetNum()
+
+        private void complexSubstr_Click (object sender, EventArgs e)
         {
-            try
-            {
-                modnumCalc = new ModNum(Convert.ToInt32(modNumA.Text), Convert.ToInt32(modNumB.Text),
-                    Convert.ToInt32(modNumN.Text));
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message); //Если значение в поле некорректно - уведомляем пользователя
-            }
+            CalculateComplexSubtract?.Invoke(this, EventArgs.Empty);
         }
-        /// <summary>
-        /// Метод обновления значения поля "Результат" для чисел по модулю N. Вызывается после проведения вычислений.
-        /// </summary>
-        private void updateMouleRes()
+
+        private void complexMult_Click (object sender, EventArgs e)
         {
-            modRes.Text = Convert.ToString(modnumCalc.getRes()); //Обновление результата в поле
+            CalculateComplexMultiply?.Invoke(this, EventArgs.Empty);
         }
-        /// <summary>
-        /// Метод обработки события "Нажата кнопка "Сумма" на вкладке "Числа по модулю N".
-        /// Производится сложение чисел по модулю, вызывается метод обновления значения в поле "Результат". 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void modSum_Click(object sender, EventArgs e)
+
+        private void complexDiv_Click (object sender, EventArgs e)
         {
-            modGetNum(); //Получение значений из полей
-            modnumCalc.findSum(); //Сумма чисел по модулю
-            updateMouleRes(); //Обновление результата
+            CalculateComplexDivide?.Invoke(this, EventArgs.Empty);
         }
-        /// <summary>
-        /// Метод обработки события "Нажата кнопка "Разность" на вкладке "Числа по модулю N".
-        /// Производится вычитание чисел по модулю, вызывается метод обновления значения в поле "Результат". 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void modSubstr_Click(object sender, EventArgs e)
+
+        private void modSum_Click (object sender, EventArgs e)
         {
-            modGetNum(); //Получение значений из полей
-            modnumCalc.findSubstr(); //Вычитание чисел по модулю
-            updateMouleRes(); //Обновление результата
+            CalculateModularSum?.Invoke(this, EventArgs.Empty);
         }
-        /// <summary>
-        /// Метод обработки события "Нажата кнопка "Произведение" на вкладке "Числа по модулю N".
-        /// Производится умножение чисел по модулю, вызывается метод обновления значения в поле "Результат". 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void modMult_Click(object sender, EventArgs e)
+
+        private void modSubstr_Click (object sender, EventArgs e)
         {
-            modGetNum(); //Получение значений из полей
-            modnumCalc.findMult(); //Произведение чисел по модулю
-            updateMouleRes(); //Обновление результата
+            CalculateModularSubtract?.Invoke(this, EventArgs.Empty);
         }
-        /// <summary>
-        /// Метод обработки события "Нажата кнопка "Частное" на вкладке "Числа по модулю N".
-        /// Производится деление чисел по модулю, вызывается метод обновления значения в поле "Результат". 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void modDiv_Click(object sender, EventArgs e)
+
+        private void modMult_Click (object sender, EventArgs e)
         {
-            modGetNum(); //Получение значений из полей
-            modnumCalc.findDiv(); //Частное чисел по модулю
-            updateMouleRes(); //Обновление результата
+            CalculateModularMultiply?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void modDiv_Click (object sender, EventArgs e)
+        {
+            CalculateModularDivide?.Invoke(this, EventArgs.Empty);
+        }
+        #endregion
+
+        public void ShowError(string message)
+        {
+            MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

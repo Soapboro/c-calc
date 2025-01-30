@@ -9,3 +9,39 @@ C:\Users\FormerSmoker\source\repos\Calculator\Calculator\obj\Debug\Calculator.ex
 C:\Users\FormerSmoker\source\repos\Calculator\Calculator\obj\Debug\Calculator.pdb
 C:\Users\FormerSmoker\source\repos\Calculator\Calculator\bin\Debug\System.Numerics.Vectors.dll
 C:\Users\FormerSmoker\source\repos\Calculator\Calculator\obj\Debug\Calculator.csproj.CopyComplete
+C:\Users\FormerSmoker\c-calc\Calculator\obj\Debug\Calculator.csproj.AssemblyReference.cache
+C:\Users\FormerSmoker\c-calc\Calculator\obj\Debug\Calculator.Form1.resources
+C:\Users\FormerSmoker\c-calc\Calculator\obj\Debug\Calculator.Properties.Resources.resources
+C:\Users\FormerSmoker\c-calc\Calculator\obj\Debug\Calculator.csproj.GenerateResource.cache
+C:\Users\FormerSmoker\c-calc\Calculator\obj\Debug\Calculator.csproj.CoreCompileInputs.cache
+C:\Users\FormerSmoker\c-calc\Calculator\obj\Debug\Calculator.exe
+C:\Users\FormerSmoker\c-calc\Calculator\obj\Debug\Calculator.pdb
+C:\Users\FormerSmoker\c-calc\Calculator\bin\Debug\Calculator.exe.config
+C:\Users\FormerSmoker\c-calc\Calculator\bin\Debug\Calculator.exe
+C:\Users\FormerSmoker\c-calc\Calculator\bin\Debug\Calculator.pdb
+C:\Users\FormerSmoker\c-calc\Calculator\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\FormerSmoker\c-calc\Calculator\obj\Debug\Calculator.csproj.Up2Date
+C:\Users\FormerSmoker\Downloads\Telegram Desktop\c-calc\Calculator\obj\Debug\Calculator.csproj.AssemblyReference.cache
+C:\Users\FormerSmoker\Downloads\Telegram Desktop\c-calc\Calculator\obj\Debug\Calculator.Form1.resources
+C:\Users\FormerSmoker\Downloads\Telegram Desktop\c-calc\Calculator\obj\Debug\Calculator.Properties.Resources.resources
+C:\Users\FormerSmoker\Downloads\Telegram Desktop\c-calc\Calculator\obj\Debug\Calculator.csproj.GenerateResource.cache
+C:\Users\FormerSmoker\Downloads\Telegram Desktop\c-calc\Calculator\obj\Debug\Calculator.csproj.CoreCompileInputs.cache
+C:\Users\FormerSmoker\Downloads\Telegram Desktop\c-calc\Calculator\obj\Debug\Calculator.exe
+C:\Users\FormerSmoker\Downloads\Telegram Desktop\c-calc\Calculator\obj\Debug\Calculator.pdb
+C:\Users\FormerSmoker\Downloads\Telegram Desktop\c-calc\Calculator\bin\Debug\Calculator.exe.config
+C:\Users\FormerSmoker\Downloads\Telegram Desktop\c-calc\Calculator\bin\Debug\Calculator.exe
+C:\Users\FormerSmoker\Downloads\Telegram Desktop\c-calc\Calculator\bin\Debug\Calculator.pdb
+C:\Users\FormerSmoker\Downloads\Telegram Desktop\c-calc\Calculator\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\FormerSmoker\Downloads\Telegram Desktop\c-calc\Calculator\obj\Debug\Calculator.csproj.Up2Date
+C:\Users\FormerSmoker\Desktop\c-calc\Calculator\bin\Debug\Calculator.exe.config
+C:\Users\FormerSmoker\Desktop\c-calc\Calculator\bin\Debug\Calculator.exe
+C:\Users\FormerSmoker\Desktop\c-calc\Calculator\bin\Debug\Calculator.pdb
+C:\Users\FormerSmoker\Desktop\c-calc\Calculator\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\FormerSmoker\Desktop\c-calc\Calculator\obj\Debug\Calculator.csproj.AssemblyReference.cache
+C:\Users\FormerSmoker\Desktop\c-calc\Calculator\obj\Debug\Calculator.Form1.resources
+C:\Users\FormerSmoker\Desktop\c-calc\Calculator\obj\Debug\Calculator.Properties.Resources.resources
+C:\Users\FormerSmoker\Desktop\c-calc\Calculator\obj\Debug\Calculator.csproj.GenerateResource.cache
+C:\Users\FormerSmoker\Desktop\c-calc\Calculator\obj\Debug\Calculator.csproj.CoreCompileInputs.cache
+C:\Users\FormerSmoker\Desktop\c-calc\Calculator\obj\Debug\Calculator.exe
+C:\Users\FormerSmoker\Desktop\c-calc\Calculator\obj\Debug\Calculator.pdb
+C:\Users\FormerSmoker\Desktop\c-calc\Calculator\obj\Debug\Calculator.csproj.Up2Date
